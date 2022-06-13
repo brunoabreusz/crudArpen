@@ -4,8 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="imagex/png" href="https://findicons.com/files/icons/2181/34al_volume_3_2_se/24/001_54.png">
+    <link rel="shortcut icon" type="imagex/png"
+        href="https://findicons.com/files/icons/2181/34al_volume_3_2_se/24/001_54.png">
     <title>Arpencrud</title>
+
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
@@ -48,7 +51,7 @@
             width: 100px;
         }
     </style>
-
+    
 </head>
 
 <body>
@@ -57,26 +60,26 @@
     <br />
     <img src="http://teste.arpenium.com.br/images/logo.png?522ad2ff22af4a9ba9a170f82c634d06" alt="Minha Figura">
     <br />
-    <form action="/cadastrar-candidato" method="POST">
+    <form action="/atualizar-candidato/{{$candidato->id}}" method="POST">
         {{-- <img id="arpen" src="https://media-exp2.licdn.com/dms/image/C4D0BAQE4c2W71SJ4BQ/company-logo_200_200/0/1583865939994?e=1662595200&v=beta&t=np_1Ix5qFD8NMCw8qAaivuABR5FEAzoPl7CKCLZVmKw" alt="Minha Figura">
         <br/> --}}
         @csrf
+        @method("PUT")
         <label for="">Nome:</label>
-        <input type="text" placeholder="Digite seu nome" name="nome_candidato">
+        <input type="text" placeholder="Digite seu nome" name="nome_candidato" value="{{ $candidato->name }}">
         <br /> <br />
 
         <label for="">E-mail:</label>
-        <input type="text" placeholder="Digite seu e-mail" name="email_candidato">
+        <input type="text" placeholder="Digite seu e-mail" name="email_candidato" value="{{ $candidato->email }}">
         <br /> <br />
 
         <label for="">Telefone:</label>
-        <input type="text" placeholder="Digite seu telefone" name="telefone_candidato">
+        <input type="text" placeholder="Digite seu telefone" name="telefone_candidato" value="{{ $candidato->telefone }}">
         <br /> <br />
 
-        <button>Enviar cadastro</button> 
+        <button>Salvar</button> 
     </form>
 
-            <button href="/mostrar-candidato.blade.php">Enviar cadastro</button>
 </body>
 
 </html>
