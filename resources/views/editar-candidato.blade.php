@@ -37,32 +37,24 @@
 
         button {
             color: white;
-            padding: 10px 10px;
+            padding: 10px;
             text-align: center;
+            border-radius: 10px;
             text-decoration: none;
-            display: inline-block;
-            font-size: 12px;
+            border: solid;
+            font-size: 14px;
             background-color: rgb(14, 198, 88);
         }
 
-
-
-        #arpen {
-            width: 100px;
-        }
     </style>
     
 </head>
 
 <body>
     <br />
-    <br />
-    <br />
-    <img src="http://teste.arpenium.com.br/images/logo.png?522ad2ff22af4a9ba9a170f82c634d06" alt="Minha Figura">
+    {{-- <img src="http://teste.arpenium.com.br/images/logo.png?522ad2ff22af4a9ba9a170f82c634d06" alt="Minha Figura"> --}}
     <br />
     <form action="/atualizar-candidato/{{$candidato->id}}" method="POST">
-        {{-- <img id="arpen" src="https://media-exp2.licdn.com/dms/image/C4D0BAQE4c2W71SJ4BQ/company-logo_200_200/0/1583865939994?e=1662595200&v=beta&t=np_1Ix5qFD8NMCw8qAaivuABR5FEAzoPl7CKCLZVmKw" alt="Minha Figura">
-        <br/> --}}
         @csrf
         @method("PUT")
         <label for="">Nome:</label>

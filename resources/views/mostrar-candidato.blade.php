@@ -25,7 +25,7 @@
             color: #00ff;
         }
 
-        div {
+        #candidatos {
             background-color: #fff;
             border-radius: 10px;
             padding: 40px;
@@ -35,23 +35,28 @@
             margin-top: 100px;
         }
 
-        button {
+        
+        a {
             color: white;
-            padding: 10px 10px;
+            padding: 10px;
             text-align: center;
+            border-radius: 10px;
             text-decoration: none;
-            display: inline-block;
-            font-size: 12px;
+            border: solid;
+            font-size: 14px;
+        }
+
+
+        #home{
+            margin-bottom: 100px;
             background-color: rgb(14, 198, 88);
         }
-
-        #edit{
-            background: yellow;
+        #editar{
+            background-color: #2934ff;
         }
-        #delet{
-            background: red;
+        #deletar{
+            background-color: #8B0000;
         }
-
 
     </style>
     
@@ -59,11 +64,9 @@
 
 <body>
     <br />
-
-  
-    <img src="http://teste.arpenium.com.br/images/logo.png?522ad2ff22af4a9ba9a170f82c634d06" alt="Minha Figura">  
+    {{-- <img src="http://teste.arpenium.com.br/images/logo.png?522ad2ff22af4a9ba9a170f82c634d06" alt="Minha Figura">   --}}
     <br />
-    <button href="">Home</button>
+    <a id="home" href="/">Home</a>
     <br />
     
     <div id="candidatos">
@@ -71,7 +74,9 @@
     @foreach($u as $u)
 
     <p>ID: {{$u->id}} <br/> Nome: {{$u->name}} <br/> Email: {{$u->email}} <br/> Telefone: {{$u->telefone}}</p>
-    <button id="edit">Editar</button>    <button id="delet">Deletar</button>
+    <a id="editar" href="/editar-candidato/{{ $u->id }}">Editar</a>    
+    <a id="deletar" href="/excluir-candidato/{{ $u->id }}">Deletar</a>
+    <br/>    <br/>
     <hr>
 
     @endforeach
