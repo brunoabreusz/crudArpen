@@ -4,27 +4,24 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Candidato;
 use App\Http\Controllers\CandidatosController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-Route::get('/', [CandidatosController::class, 'index']);
+Route::prefix('candidato')->group(
+    function () {
+        Route::get('/', [CandidatosController::class, 'index'])->name('candidato-index');
 
-Route::post('/cadastrar-candidato', [CandidatosController::class, 'criar']);
+        Route::get('/create', [CandidatosController::class, 'create'])->name('candidato-create');
 
-Route::get('/mostrar-candidato/{id_do_candidato}', [CandidatosController::class, 'mostrar']);
+        Route::post('/', [CandidatosController::class, 'store'])->name('candidato-store');
 
-Route::get('/editar-candidato/{id_do_candidato}', [CandidatosController::class, 'atualizar']);
+        // Route::get('/mostrar-candidato/{id_do_candidato}', [CandidatosController::class, 'index']);
 
-Route::put('/atualizar-candidato/{id_do_candidato}', [CandidatosController::class, 'atualizarSave']);
+        // Route::get('/editar-candidato/{id_do_candidato}', [CandidatosController::class, 'atualizar']);
 
-Route::get('/excluir-candidato/{id_do_candidato}', [CandidatosController::class, 'deletar']);
+        // Route::put('/atualizar-candidato/{id_do_candidato}', [CandidatosController::class, 'atualizarSave']);
 
-
+        // Route::get('/excluir-candidato/{id_do_candidato}', [CandidatosController::class, 'deletar']);
+    }
+);
+Route::fallback(function () {
+    return "Erro de rota!";
+});

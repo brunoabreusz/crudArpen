@@ -13,6 +13,8 @@ class CriarTabelaDeCandidatos extends Migration
      */
     public function up()
     {
+
+        // Criação do banco candidatos
         Schema::create('candidatos', function (Blueprint $table) {
             $table->id();
             $table->string('name');
