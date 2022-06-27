@@ -21,6 +21,6 @@
             value="{{ $candidato->telefone }}">
         <br /> <br />
 
-        <button>Salvar</button>
+        <button>Sar</button>
     </form>
 @endsection
